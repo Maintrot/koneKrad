@@ -1,7 +1,29 @@
 export default function MainHello() {
   return(
     <div>
-      
+      <div>
+        <h1>Тавимский морской<br />порт VISMA</h1>
+        <p>Vel posuere nibh odio placerat massa vel tellus<br />tortor. Varius eget nunc scelerisque etiam felis<br />facilisi ante viverra sem. Nunc eros elementum.</p>
+        <h4>о компании</h4> <img src="" alt="" />
+      </div>
+      <div>
+        <div>
+          <h4>услуги</h4>
+          <h3>Погрузочно-разгрузочная<br />деятельность</h3>
+        </div>
+        <div>
+          <h4>услуги</h4>
+          <h3>Хранение<br />грузов</h3>
+        </div>
+        <div>
+          <h4>услуги</h4>
+          <h3>Складские<br />операции</h3>
+        </div>
+        <div>
+          <h4>услуги</h4>
+          <h3>Швартовые<br />операции</h3>
+        </div>
+      </div>
     </div>
   )
 }

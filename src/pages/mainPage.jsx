@@ -1,9 +1,9 @@
-import Header from "../components/header";
-import Footer from "../components/footer";
-import MainHello from '../components/mainHello';
-import Services from '../components/services';
-import AboutUs from '../components/aboutUs';
-import News from '../components/news';
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import MainHello from '../components/MainHello';
+import Services from '../components/Services';
+import AboutUs from '../components/AboutUs';
+import News from '../components/News';
 
 export default function MainPage() {
   return(

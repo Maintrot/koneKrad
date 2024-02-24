@@ -1,6 +1,6 @@
-import Header from '../components/header';
-import Footer from '../components/footer';
-import Context from '../components/context';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import Context from '../components/Context';
 
 export default function ContextPage() {
   return(
