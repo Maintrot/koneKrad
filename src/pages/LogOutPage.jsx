@@ -1,4 +1,4 @@
-import LogOut from '../components/LogOut';
+import LogOut from '@/components/LogOut';
 
 export default function LogOutPage() {
   return(

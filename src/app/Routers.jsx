@@ -1,11 +1,11 @@
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
-import MainPage from './pages/MainPage';
-import ContextPage from './pages/ContextPage';
-import CalculatorPage from './pages/CalculatorPage';
-import LogInPage from './pages/LogInPage';
-import LogOutPage from './pages/LogOutPage';
-import RegisterPage from './pages/RegisterPage';
-import ErrorPage from '../pages/ErrorPage';
+import MainPage from '@/pages/MainPage';
+import ContextPage from '@/pages/ContextPage';
+import CalculatorPage from '@/pages/CalculatorPage';
+import LogInPage from '@/pages/LogInPage';
+import LogOutPage from '@/pages/LogOutPage';
+import RegisterPage from '@/pages/RegisterPage';
+import ErrorPage from '@/pages/ErrorPage';
 
 export default function Routers() {
   return(
