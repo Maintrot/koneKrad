@@ -2,6 +2,7 @@ import { useState, useContext } from 'react'
 import axios from 'axios'
 import { UserContext } from '@/App.jsx'
 import { Link } from 'react-router-dom'
+import { useNavigate } from "react-router-dom"
 
 export default function Register() {
   const [firstname, setFirstname] = useState('')
@@ -11,6 +12,7 @@ export default function Register() {
   const [password, setPassword] = useState('')
   const [passwordConfirm, setPasswordConfirm] = useState('')
   const [user, setUser] = useContext(UserContext)
+  const navigate = useNavigate()
 
   function setInputFirstname(event) {
     setFirstname(event.target.value)
@@ -31,6 +33,10 @@ export default function Register() {
     setPasswordConfirm(event.target.value)
   }
 
+  function back(event) {
+    navigate('/')
+  }
+
   async function sendForm(event) {
     event.preventDefault()
 
@@ -45,6 +51,8 @@ export default function Register() {
       .then((res) => {
         console.log(res)
         setUser(true)
+
+        navigate('/')
       })
       .catch((error) => {
         if (error.response) {
@@ -58,23 +66,24 @@ export default function Register() {
   }
 
   return(
-    <div>
-      <div>
+    <div className="back">
+      <div className='register'>
         <form onSubmit={sendForm} method='post'>
           <h2>Register</h2>
-          <label htmlFor="firstname">Firstname: </label>
-          <input onChange={setFirstname} type="text" name="firstname" placeholder="enter your firstname" />
-          <label htmlFor="lastname">Lastname: </label>
-          <input onChange={setInputLastname} type="text" name="lastname" placeholder="enter your lastname" />
-          <label htmlFor="name">Name: </label>
-          <input onChange={setInputUsername} type="text" name="username" placeholder="enter your username" />
-          <label htmlFor="email">Email: </label>
-          <input onChange={setInputEmail} type="email" name="email" placeholder="enter your Email" />
-          <label htmlFor="password">Password: </label>
-          <input onChange={setInputPassword} type="password" name="password" placeholder="enter your password" />
-          <label htmlFor="password_again">Password again: </label>
-          <input onChange={setInputPasswordConfirm} type="password" name="password_again" placeholder="enter your password again" />
-          <input type="submit" value="submit" />
+          <label htmlFor="firstname">Firstname: </label><br/>
+          <input onChange={setInputFirstname} type="text" name="firstname" placeholder="enter your firstname" /><br/>
+          <label htmlFor="lastname">Lastname: </label><br/>
+          <input onChange={setInputLastname} type="text" name="lastname" placeholder="enter your lastname" /><br/>
+          <label htmlFor="name">Name: </label><br/>
+          <input onChange={setInputUsername} type="text" name="username" placeholder="enter your username" /><br/>
+          <label htmlFor="email">Email: </label><br/>
+          <input onChange={setInputEmail} type="email" name="email" placeholder="enter your Email" /><br/>
+          <label htmlFor="password">Password: </label><br/>
+          <input onChange={setInputPassword} type="password" name="password" placeholder="enter your password" /><br/>
+          <label htmlFor="password_again">Password again: </label><br/>
+          <input onChange={setInputPasswordConfirm} type="password" name="password_again" placeholder="enter your password again" /><br/>
+          <input className="submit" type="submit" value="submit" /><br/>
+          <button onClick={back} className='op_next'>Back</button>
         </form>
       </div>
     </div>

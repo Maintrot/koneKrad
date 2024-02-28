@@ -7,19 +7,19 @@ export default function Header() {
 
   return(
     <header>
-      <div>
-        <img src="" alt="" />
+      <div className='hdr_img'>
+        <img src="../assets/Vector.svg" alt="Vector.svg" />
       </div>
-      <div>
+      <div className='hdr_nav'>
         <nav>
-          <Link to='/context'>Context</Link>
-          <Link to='/calculator'>InputCreate</Link>
-          <Link to='/'>AboutUs</Link>
-          <Link to='/'>News</Link>
+          <Link className='link' to='/context'>Context</Link>
+          <Link className='link' to='/calculator'>InputCreate</Link>
+          <Link className='link' to='/'>AboutUs</Link>
+          <Link className='link' to='/'>News</Link>
           {!user ? (
-            <><Link to='/login'>SignIn</Link><Link to='/register'>SignUp</Link></>
+            <><Link className='link' to='/login'>SignIn</Link><Link className='link' to='/register'>SignUp</Link></>
           ) : (
-            <><Link to='/logout'>LogOut</Link></>
+            <><Link className='link' to='/logout'>LogOut</Link></>
           )}
         </nav>
       </div>

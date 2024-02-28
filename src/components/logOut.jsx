@@ -1,17 +1,32 @@
-import { useState, useContext } from "react"
-import axios from "axios"
+import { useContext } from "react"
 import { UserContext } from "@/App"
-import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 export default function LogOut() {
+  const [user, setUser] = useContext(UserContext)
+  const navigate = useNavigate()
+
+  function logout(event) {
+    setUser(false)
+
+    localStorage.removeItem('access_token')
+    localStorage.removeItem('refresh_token')
+
+    navigate('/')
+  }
+
+  function ok(event) {
+    navigate('/')
+  }
+
   return(
-    <div>
-      <div>
+    <div className="back">
+      <div className="logout">
         <form>
           <h2>Logout</h2>
           <label htmlFor="">Are you sure?</label>
-          <button>No</button>
-          <button>Yes</button>
+          <button onClick={ok} className="no">No</button>
+          <button onClick={logout} className="yes">Yes</button>
         </form>
       </div>
     </div>

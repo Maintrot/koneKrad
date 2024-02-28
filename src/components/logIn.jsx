@@ -1,12 +1,13 @@
 import { useState, useContext } from "react"
 import axios from "axios"
 import { UserContext } from "@/App"
-import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 export default function LogIn() {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [user, setUser] = useContext(UserContext)
+  const navigate = useNavigate()
 
   function setInputUsername(event) {
     setUsername(event.target.value)
@@ -25,10 +26,12 @@ export default function LogIn() {
       .then((res) => {
         const {access, refresh} = res.data
 
-        localStorage.getItem('access_token', access)
-        localStorage.getItem('refresh_token', refresh)
+        localStorage.setItem('access_token', access)
+        localStorage.setItem('refresh_token', refresh)
 
         setUser(true)
+
+        navigate('/')
       })
       .catch((error) => {
         if (error.response) {
@@ -40,16 +43,22 @@ export default function LogIn() {
         }
       })
   }
+
+  function back(event) {
+    navigate('/')
+  }
+
   return(
-    <div>
-        <div>
+    <div className="back">
+        <div className="login">
           <form onSubmit={sendForm} method="post">
             <h2>Login</h2>
             <label htmlFor="name">Name: </label>
             <input onChange={setInputUsername} type="text" name="username" placeholder="enter your username" />
             <label htmlFor="password">Password: </label>
             <input onChange={setInputPassword} type="password" name="password" placeholder="enter your password" />
-            <input type="submit" value="submit" />
+            <input className="submit" type="submit" value="submit" />
+            <button onClick={back} className='op_next'>Back</button>
           </form>
         </div>
     </div>
