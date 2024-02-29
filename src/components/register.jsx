@@ -40,7 +40,7 @@ export default function Register() {
   async function sendForm(event) {
     event.preventDefault()
 
-    const response = axios.post('http://127.0.0.1:8000/api/v1/auth/register/', {
+    const response = axios.post('http://217.151.230.35/api/v1/regauth/register/', {
       username: username,
       email: email,
       password: password,

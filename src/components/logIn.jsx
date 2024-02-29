@@ -19,9 +19,9 @@ export default function LogIn() {
   async function sendForm(event) {
     event.preventDefault()
 
-    const response = axios.post('http://127.0.0.1:8000/api/v1/auth/login/', {
+    const response = axios.post('http://217.151.230.35/api/v1/regauth/login/', {
       username: username,
-      password: password
+      password: password,
     })
       .then((res) => {
         const {access, refresh} = res.data
